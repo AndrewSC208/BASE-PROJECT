@@ -1,23 +1,24 @@
+import 'typeface-roboto';
+import './styles/index.css'
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
 import { MuiThemeProvider } from 'material-ui/styles';
 import { Route } from 'react-router';
-
-import theme from './modules/theme';
-import registerServiceWorker from './modules/registerServiceWorker';
+/**
+ * app specific
+ */
+import theme from './utils/theme';
+import registerServiceWorker from './utils/registerServiceWorker';
 import store, { history } from './store'
-
-import Home       from './containers/home'
-import Signup     from './containers/signup'
-import Login      from './containers/login'
-import Dashboard  from './containers/dashboard'
-
-import 'typeface-roboto';
-import './styles/index.css'
-
-const target = document.querySelector('#root')
+/**
+ * views
+ */
+import Home       from './views/home'
+import Signup     from './views/signup'
+import Login      from './views/login'
+import Dashboard  from './views/dashboard'
 
 render(
     <Provider store={store}>
@@ -34,7 +35,7 @@ render(
             </ConnectedRouter>
         </MuiThemeProvider>
     </Provider>,
-    target
+    document.querySelector('#root')
 )
 
 registerServiceWorker();

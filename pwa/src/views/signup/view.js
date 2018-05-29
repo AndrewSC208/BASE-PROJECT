@@ -17,13 +17,8 @@ const styles = theme => ({
 });
 
 class SignUpView extends Component {
-
     render() {
-        const { 
-            classes, 
-            toDashboard, 
-            toHome, 
-            createUserReq } = this.props;
+        const {classes, toDashboard, toHome} = this.props;
         
         return (
             <div className={classes.root}>
@@ -33,8 +28,9 @@ class SignUpView extends Component {
                         <SignupForm 
                             next={toDashboard} 
                             cancel={toHome} 
-                            signup={createUserReq}/>
-                            
+                            // when ready update the signup method
+                            // signup={}
+                            />
                     </Grid>
                 </Grid>
             </div>
