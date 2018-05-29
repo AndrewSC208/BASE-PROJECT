@@ -3,7 +3,7 @@ import { withStyles } from 'material-ui/styles';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 
-import { checkPassword, checkEmail } from '../modules/utils/validateInput';
+import { checkPassword, checkEmail } from '../utils/validateInput';
 
 const styles = theme => ({
     formContainer: {
@@ -94,12 +94,12 @@ class SignupForm extends Component {
 
     onSignup = () => {
         const { username, password, email, error } = this.state;
-        const { signup, next } = this.props;
+        const { next } = this.props;
 
         this.validateInput();
         
         if (error.code === 0) {
-            signup({ username, password, email });
+            // signup({ username, password, email });
         }
 
         if(error.code === 0) {
