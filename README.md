@@ -1,11 +1,10 @@
-# BASE
-This is my base distributed micro service react-pwa starter project. It's great for getting started on dashboard projects, games, app.
+# ROADMAP
 
-TODO:
-
-Add mobile with react native
-Add native with electron
-
+* MAKE SURE ALL THE DOCKER NETWORKING IS SETUP CORRECTLY
+* SERVE PWA FROM GATEWAY 80
+* CREATE SIGN-UP VIEW WITH NEW SERVER
+* CREATE SIGN-IN VIEW WITH NEW SERVER
+* CREATE HOME VIEW WITH NEW SERVER DATA
 
 ## DOCKER COMMANDS:
 ```$

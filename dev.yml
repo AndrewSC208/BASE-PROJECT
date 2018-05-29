@@ -63,7 +63,7 @@ services:
   # consul
   # NOTE: on a mac `$ export HOST_IP=172.17.0.1
   registry:
-    command: -server -bootstrap -advertise ${HOST_IP} -ui-dir /ui
+    command: -server -bootstrap -advertise ${HOST_IP}
     image: progrium/consul
     container_name: registry
     labels:

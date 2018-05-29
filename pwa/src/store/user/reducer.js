@@ -1,4 +1,4 @@
-import { USER, SOCKET } from './types';
+import { USER, SOCKET, CLIENT } from './types';
 
 /*** INITIAL STATE ***/
 const initialState = {
@@ -7,7 +7,8 @@ const initialState = {
     email: '',
     socket: 'disconnected',
     isUpdating: false,
-    isConnecting: false
+    isConnecting: false,
+    client: {}
 }
 
 /*** REDUCER ***/
@@ -20,6 +21,9 @@ const user = (state = initialState, action) => {
 
         case SOCKET:
             return { ...state, socket: payload }
+
+        case CLIENT:
+            return { ...state, client: payload }
 
         default:
             return state

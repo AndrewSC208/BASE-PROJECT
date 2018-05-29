@@ -4,15 +4,10 @@ import { connect } from 'react-redux'
 
 import DashboardView from './view';
 
-const mapStateToProps = state => ({
-
-});
+const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     toHome: () => push('/'),
 }, dispatch);
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(DashboardView)
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardView)

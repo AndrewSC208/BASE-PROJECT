@@ -19,7 +19,7 @@ class SignUpView extends Component {
 
     navToLogin = () => {
         this.props.toLogin();
-    }
+    };
 
     render() {
         const { classes } = this.props;
