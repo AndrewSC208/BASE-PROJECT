@@ -1,6 +1,7 @@
 version: '3'
 services:
-  cockroachdb:
+  # cochroachDB
+  db:
     image: cockroachdb/cockroach:v2.0.1
     command: start --insecure --store=attrs=ssd,path=/var/lib/cockroach/
     restart: always
@@ -12,7 +13,12 @@ services:
     ports:
       - "26257:26257"
       - "8080:8080"
-  nakama:
+    labels:
+      SERVICE_TAGS: production
+      SERVICE_NAME: db
+
+  # nakama
+  server:
     image: heroiclabs/nakama:2.0.0
     entrypoint:
       - "/bin/sh"
@@ -22,9 +28,9 @@ services:
           /nakama/nakama --name nakama1 --database.address root@cockroachdb:26257
     restart: always
     links:
-      - "cockroachdb:db"
+      - "db:db"
     depends_on:
-      - cockroachdb
+      - db
     volumes:
       - ./:/nakama/data
     expose:
@@ -38,5 +44,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    labels:
+      SERVICE_TAGS: production
+      SERVICE_NAME: server
 volumes:
   data:
