@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
+import { getDeviceId } from '../../services/deviceId';
 
 const styles = theme => ({
     button: {
@@ -12,6 +13,11 @@ const styles = theme => ({
 });
 
 class SignUpView extends Component {
+    constructor(props) {
+        super(props)
+
+        getDeviceId();
+    }
 
     navToSignup = () => {
         this.props.toSignup();

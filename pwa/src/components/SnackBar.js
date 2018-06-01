@@ -1,58 +1,17 @@
-/*  NANME: snackbar - component
- *  SPEC: This is a global snackbar component for displaying message to the user. 
- *        It's attacked on the global level and can be triggered through the different action types
- */
 import React, { Component } from 'react';
 import { withStyles } from 'material-ui/styles';
 import Snackbar from 'material-ui/Snackbar';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import CloseIcon from 'material-ui-icons/Close';
-/*** MODEL ***/
-const initialState = {
-    code: 0,
-    text: '',
-    lable: '',
-    undoAction: null,
-    open: false
-}
-/*** ACTION TYPES ***/
-export const CREATE_NOTIFICATION = 'CREATE_NOTIFICATION'
-export const DELETE_NOTIFICATION = 'DELETE_NOTIFICATION'
-/*** ACTION CREATORS ***/
-function createNotification(payload) {
-    return {
-        type: CREATE_NOTIFICATION,
-        payload
-    }
-}
-function deleteNotification(payload) {
-    return {
-        type: DELETE_NOTIFICATION,
-        payload
-    }
-}
-/*** REDUCER ***/
-export const notification = (state = initialState, action) => {
-    switch (action.type) {
-        case CREATE_NOTIFICATION:
-            return Object.assign({}, state, action.payload)
 
-        case DELETE_NOTIFICATION:
-            return Object.assign({}, state, action.payload)
-
-        default:
-            return state
-    }
-}
-/*** STYLES ***/
 const styles = theme => ({
     close: {
         width: theme.spacing.unit * 4,
         height: theme.spacing.unit * 4,
     }
 });
-/*** COMPONENT ***/
+
 class SnackBarView extends Component {
     constructor(props) {
         super(props);
@@ -82,17 +41,21 @@ class SnackBarView extends Component {
                     vertical: 'bottom',
                     horizontal: 'left',
                 }}
+
                 // change this to point at redux state:
                 open={this.state.open}
                 autoHideDuration={6000}
+
                 // change this to point to redux state:
                 onClose={this.handleClose}
                 SnackbarContentProps={{
                     'aria-describedby': 'message-id',
                 }}
+
                 message={<span id="message-id">Note archived</span>}
 
                 action={[
+
                     // change this to point to redux state:
                     <Button key="undo" color="secondary" size="small" onClick={this.handleClose}>UNDO</Button>,
                     <IconButton
@@ -100,8 +63,7 @@ class SnackBarView extends Component {
                         aria-label="Close"
                         color="inherit"
                         className={classes.close}
-                        onClick={this.handleClose}
-                    >
+                        onClick={this.handleClose}>
                         <CloseIcon />
                     </IconButton>,
                 ]}
@@ -112,9 +74,7 @@ class SnackBarView extends Component {
 
 const SnackBar = withStyles(styles)(SnackBarView);
 
-export {
-    SnackBar
-}
+export { SnackBar }
 
 
 

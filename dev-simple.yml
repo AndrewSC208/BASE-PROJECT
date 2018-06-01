@@ -24,8 +24,8 @@ services:
       - "/bin/sh"
       - "-ecx"
       - >
-          /nakama/nakama migrate up --database.address root@cockroachdb:26257 &&
-          /nakama/nakama --name nakama1 --database.address root@cockroachdb:26257
+          /nakama/nakama migrate up --database.address root@db:26257 &&
+          /nakama/nakama --name nakama1 --database.address root@db:26257
     restart: always
     links:
       - "db:db"
