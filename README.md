@@ -1,15 +1,14 @@
 # ROADMAP
 
-* CREATE SIGN-UP, SIGN-IN VIEW WITH NEW SERVER
-
-* MAKE SURE ALL THE DOCKER NETWORKING IS SETUP CORRECTLY
-* SERVE PWA FROM GATEWAY 80 HTTP SERVER
-* CREATE HOME VIEW WITH NEW SERVER DATA
+* CREATE SIGN-UP
+* SIGN-IN
+* HOMEPAGE
+* FIRST MASTER PAGE 
 
 ## UP AND RUNNING:
 1. run docker compose:
 ```$
-docker-compose -f dev-simple.yml up
+docker-compose up
 ```
 
 2. cd into client application to work on (ie, pwa)

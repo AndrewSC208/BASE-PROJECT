@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import BottomNavigation, { BottomNavigationAction } from 'material-ui/BottomNavigation';
-import Icon from 'material-ui/Icon';
 import HomeIcon from 'material-ui-icons/Home';
 import CakeIcon from 'material-ui-icons/Cake';
 import GroupIcon from 'material-ui-icons/Group';

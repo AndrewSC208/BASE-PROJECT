@@ -93,8 +93,8 @@ class SignupForm extends Component {
     };
 
     onSignup = () => {
-        const { username, password, email, error } = this.state;
-        const { next } = this.props;
+        const {error} = this.state;
+        const {next} = this.props;
 
         this.validateInput();
         
