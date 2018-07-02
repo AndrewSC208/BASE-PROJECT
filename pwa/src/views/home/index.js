@@ -12,4 +12,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch)
 
 // Look into using es7 decorators to clean this line up
-export default connect(mapStateToProps, mapDispatchToProps)(HomeView) 
+export default connect(mapStateToProps, mapDispatchToProps)(HomeView)

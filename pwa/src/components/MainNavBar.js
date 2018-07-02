@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -12,7 +13,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import { push } from 'react-router-redux'
 
 const styles = {
     root: {
@@ -28,6 +28,12 @@ const styles = {
 };
 
 class MainNavBar extends React.Component {
+    constructor(props) {
+        super(props)
+
+        console.log('PROPS: ', this.props)
+    }
+
     state = {
         auth: false,
         anchorEl: null,
@@ -44,8 +50,12 @@ class MainNavBar extends React.Component {
     handleClose = route => {
         this.setState({ anchorEl: null });
 
-        if (route) {
-            push(route)
+        if (route === '/signup') {
+            this.props.links[1].call();
+        } else if (route === '/signin') {
+            this.props.links[0].call();
+        } else {
+            return;
         }
     };
 
@@ -56,14 +66,14 @@ class MainNavBar extends React.Component {
 
         return (
             <div className={classes.root}>
-                <FormGroup>
+                {/* <FormGroup>
                     <FormControlLabel
                         control={
                             <Switch checked={auth} onChange={this.handleChange} aria-label="LoginSwitch" />
                         }
                         label={auth ? 'Logout' : 'Login'}
                     />
-                </FormGroup>
+                </FormGroup> */}
                 <AppBar position="static">
                     <Toolbar>
                         <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
