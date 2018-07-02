@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 /*** IMPORTED CONTAINERS ***/
 import Home      from '../home';
 import Signup    from '../signup';

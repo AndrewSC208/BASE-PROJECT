@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { withStyles } from 'material-ui/styles';
-import Button from 'material-ui/Button';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+import MainNavBar from '../../components/MainNavBar'
 
 const styles = theme => ({
     button: {
@@ -12,21 +14,15 @@ const styles = theme => ({
 });
 
 class SignUpView extends Component {
-    navToSignup = () => {
-        this.props.toSignup();
-    };
-
-    navToLogin = () => {
-        this.props.toLogin();
-    };
-
     render() {
-        const { classes } = this.props;
+        const { classes, toLogin, toSignup } = this.props;
         return (
             <div>
+                <MainNavBar />
+
                 <h1>Home</h1>
-                <Button variant="raised" className={classes.button} onClick={this.navToSignup}>Sign up</Button>
-                <Button variant="raised" className={classes.button} onClick={this.navToLogin}>Login</Button>
+                <Button variant="raised" className={classes.button} onClick={toSignup}>Sign up</Button>
+                <Button variant="raised" className={classes.button} onClick={toLogin}>Login</Button>
             </div>
         )
     }
