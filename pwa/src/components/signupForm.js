@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+import Typeography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 import { checkPassword, checkEmail } from '../utils/validateInput';
 
@@ -16,6 +19,11 @@ const styles = theme => ({
     },
     button: {
         margin: theme.spacing.unit,
+    },
+    root: {
+        ...theme.mixins.gutters(),
+        paddingTop: theme.spacing.unit * 2,
+        paddingBottom: theme.spacing.unit * 2,
     },
 });
   
@@ -115,52 +123,71 @@ class SignupForm extends Component {
         
         return (
             <div>
-                <form className={classes.formContainer} noValidate autoComplete="off">
-                    <TextField
-                        id="username"
-                        label="Username"
-                        placeholder="Friend1234"
-                        className={classes.textField}
-                        margin="normal"
-                        fullWidth
-                        onChange={this.handleChange('username')}
-                    />
-                    <TextField
-                        error={error.code === 3}
-                        helperText={error.code === 3 ? error.label : ''}
-                        id="email"
-                        label="Email"
-                        placeholder="example@gmail.com"
-                        className={classes.textField}
-                        margin="normal"
-                        fullWidth
-                        onChange={this.handleChange('email')}
-                    />
-                    <TextField
-                        error={error.code === 1 || error.code === 2}
-                        helperText={error.label}
-                        id="password"
-                        label="Password"
-                        type="password"
-                        className={classes.textField}
-                        margin="normal"
-                        fullWidth
-                        onChange={this.handleChange('password')}
-                    />
-                    <TextField
-                        error={error.code === 1 || error.code === 2}
-                        helperText={error.code === 1 || error.code === 2 ? error.label : ''}
-                        type="password"
-                        id="confirmPassword"
-                        label="Confirm Password"
-                        className={classes.textField}
-                        margin="normal"
-                        fullWidth
-                        onChange={this.handleChange('confirmPassword')}
-                    />
-                    <Button variant="raised" className={classes.button} onClick={this.onCancel}>Cancel</Button>
-                    <Button variant="raised" className={classes.button} onClick={this.onSignup} disable={error.code === 0 ? 'true' : 'false'}>Signup!</Button>
-                </form>
+                <Grid container className={classes.root} direction={'row'} justify={'center'} alignItems={'center'}>
+                    <Paper className={classes.root} elevation={1}>
+                        <Grid container className={classes.root} direction={'row'} justify={'center'} alignItems={'center'}>
+                            <Grid item xs={12}>
+                                <Typeography align={'center'} variant="display4">Sign Up</Typeography>
+                            </Grid>
+
+                            <Grid container className={classes.root} direction={'column'} justify={'flex-start'} alignItems={'flex-start'}>
+
+                                <Grid item xs={6}>
+                                    <form className={classes.formContainer} noValidate autoComplete="off">
+                                        <TextField
+                                            id="username"
+                                            label="Username"
+                                            placeholder="Friend1234"
+                                            className={classes.textField}
+                                            margin="normal"
+                                            fullWidth
+                                            onChange={this.handleChange('username')}
+                                        />
+                                        <TextField
+                                            error={error.code === 3}
+                                            helperText={error.code === 3 ? error.label : ''}
+                                            id="email"
+                                            label="Email"
+                                            placeholder="example@gmail.com"
+                                            className={classes.textField}
+                                            margin="normal"
+                                            fullWidth
+                                            onChange={this.handleChange('email')}
+                                        />
+                                        <TextField
+                                            error={error.code === 1 || error.code === 2}
+                                            helperText={error.label}
+                                            id="password"
+                                            label="Password"
+                                            type="password"
+                                            className={classes.textField}
+                                            margin="normal"
+                                            fullWidth
+                                            onChange={this.handleChange('password')}
+                                        />
+                                        <TextField
+                                            error={error.code === 1 || error.code === 2}
+                                            helperText={error.code === 1 || error.code === 2 ? error.label : ''}
+                                            type="password"
+                                            id="confirmPassword"
+                                            label="Confirm Password"
+                                            className={classes.textField}
+                                            margin="normal"
+                                            fullWidth
+                                            onChange={this.handleChange('confirmPassword')}
+                                        />
+                                    </form>
+                                </Grid>
+
+                                <Grid item xs={6}>
+                                    <Button variant="raised" className={classes.button} onClick={this.onCancel}>Cancel</Button>
+                                    <Button variant="raised" className={classes.button} onClick={this.onSignup} disable={error.code === 0 ? 'true' : 'false'}>Signup!</Button>
+                                </Grid>
+
+                            </Grid>
+                        </Grid>
+                    </Paper>
+                </Grid>
             </div>
         )
     }

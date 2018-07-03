@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Typeography from '@material-ui/core/Typography';
 
-import SignupForm from '../../components/signupForm';
+import SignupForm from '../../components/SignupForm';
 
 const styles = theme => ({
     root: {
@@ -25,13 +24,7 @@ class SignUpView extends Component {
             <div className={classes.root}>
                 <Grid container spacing={24}>
                     <Grid item xs={12}>
-                        <Typeography variant="display4">Sign Up</Typeography>
-                        <SignupForm 
-                            next={toDashboard} 
-                            cancel={toHome} 
-                            // when ready update the signup method
-                            // signup={}
-                            />
+                        <SignupForm next={toDashboard} cancel={toHome} />
                     </Grid>
                 </Grid>
             </div>
