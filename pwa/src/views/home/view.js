@@ -9,7 +9,7 @@ const styles = theme => ({
 
 class SignUpView extends Component {
     render() {
-        const { classes, toLogin, toSignup } = this.props;
+        const { toLogin, toSignup } = this.props;
         return (
             <div>
                 <MainNavBar links={[toLogin, toSignup]}/>
