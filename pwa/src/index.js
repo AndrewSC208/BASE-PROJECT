@@ -6,7 +6,6 @@ import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import { Route } from 'react-router';
-import * as nakamajs from '../node_modules/@heroiclabs/nakama-js/dist/nakama-js.umd.js';
 /**
  * app specific
  */
@@ -21,8 +20,7 @@ import Signup     from './views/signup'
 import Login      from './views/login'
 import Dashboard  from './views/dashboard'
 
-var client = new nakamajs.Client("defaultkey", "127.0.0.1", 7350);
-client.usessl = false;
+
 
 render(
     <Provider store={store}>
