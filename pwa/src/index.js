@@ -6,24 +6,25 @@ import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import { Route } from 'react-router';
-import { loginWithEmail } from './services/nakama';
 /**
- * app specific
+ * UTILS
  */
 import theme from './utils/theme';
 import registerServiceWorker from './utils/registerServiceWorker';
-import store, { history } from './store'
 /**
- * views
+ * STORE
+ */
+import store, { history } from './store';
+/**
+ * VIEWS
  */
 import Home       from './views/home'
 import Signup     from './views/signup'
 import Login      from './views/login'
 import Dashboard  from './views/dashboard'
-
-// Need to fix async await babe issue
-loginWithEmail('test@test.com', 'test')
-
+/**
+ * SERVICES
+ */
 render(
     <Provider store={store}>
         <MuiThemeProvider theme={theme}>

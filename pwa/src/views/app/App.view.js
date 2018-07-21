@@ -14,7 +14,8 @@ const styles = theme => ({
         height: '100vh'
     }
 });
-class AppView extends Component {
+
+class App extends Component {
     constructor(props) {
         super(props)
     }
@@ -35,4 +36,4 @@ class AppView extends Component {
     }
 }
 
-export default withStyles(styles)(AppView);
+export default withStyles(styles)(App);

@@ -25,12 +25,6 @@ const styles = {
 };
 
 class MainNavBar extends React.Component {
-    constructor(props) {
-        super(props)
-
-        console.log('PROPS: ', this.props)
-    }
-
     state = {
         auth: false,
         anchorEl: null,
